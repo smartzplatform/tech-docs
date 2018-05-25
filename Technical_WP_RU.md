@@ -1209,6 +1209,20 @@ contract MyContract is USDETHOracle(1 hours, 100, 0) {
 
 # Смарт-контракты
 
+## ERC20 токен
+
+Реализация стандарта [ERC20](https://github.com/ethereum/EIPs/blob/master/EIPS/eip-20.md) - стандарта интерфейса для токенов.
+
+В качестве реализация стандарта выбрана реализация из самой популярной на данный момент библиотеки [OpenZeppelin Solidity](https://github.com/OpenZeppelin/openzeppelin-solidity/). Контракты токена из этой библиотеки покрыты тестами, хорошо оттестированы сообществои и используются в качестве основы в подавляющем большинстве выпускаемых токенов.
+
+Часто простой реализации стандарта ERC20 бывает недостаточно, поэтому в конструкторе ERC20 токена в контракт можно добавить следующие дополнительные возможности:
+- выпуск токенов (с возможностью задать максимальное количество токенов)
+- сжигание токенов
+- временная остановка обращения токенов
+
+Реализация дополнительных возможностей также взята из библиотеки OpenZeppelin Solidity (см контракты [MintableToken](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/token/ERC20/MintableToken.sol), [CappedToken](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/token/ERC20/CappedToken.sol), [BurnableToken](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/token/ERC20/BurnableToken.sol), [PausableToken](https://github.com/OpenZeppelin/openzeppelin-solidity/blob/master/contracts/token/ERC20/PausableToken.sol)).
+
+
 
 
 
