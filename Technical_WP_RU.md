@@ -1086,7 +1086,7 @@ Smartz сможет сгенерировать и запустить оба ук
 
 Схема решения приведена ниже.
 
-![Payment Platform scheme](PaymentPlatform.webp "Payment Platform scheme")
+![Payment Platform scheme](PaymentPlatform.png "Payment Platform scheme")
 
 Интеграция с системами клиента происходит через web API, доступное через `reverse proxy`. Через API можно запросить индивидуальный
 платежный адрес для каждого нового пользователя, передав как параметр его адрес в блокчейне назначения платежа.
