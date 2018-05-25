@@ -628,6 +628,10 @@ experience. Основная используемая технология - [Re
 Для сбора метрик, мониторинга систем и внутренних оповещений используем [Telegraf](https://github.com/influxdata/telegraf),
 [InfluxDB](https://www.influxdata.com), [Grafana](https://grafana.com).
 
+Для отслеживания исключительных ситуаций и реагирования на них в реальном времени используем [sentry](https://github.com/getsentry/sentry),
+как на бэкенде (используя [raven-python](https://github.com/getsentry/raven-python) в качестве клиента) так и на
+фронтенде (используя [raven-js](https://github.com/getsentry/raven-js) в качестве клиента).
+
 
 ## Аутентификация
 
