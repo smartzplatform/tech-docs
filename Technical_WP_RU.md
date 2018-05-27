@@ -1585,6 +1585,15 @@ function findIdByFullName(bytes32 name) internal view returns (uint256);
 - [Контракт](https://github.com/smartzplatform/contracts/blob/master/contracts/ballot/SimpleBallot.sol)
 - [Конструктор контрактов](https://github.com/smartzplatform/SDK/blob/master/constructor_examples/simple_ballot_constructor.py)
 
+Общая схема работы:
+- Контракт деплоится с указанием вариантов, за которые можно проголосовать.
+- После деплоя любой человек может единоразово проголосовать за один из вариантов, вызвав методы контракта:
+  - `vote` - указав ID варианта, за который необходимо проголосовать
+  - `voteByName` - указав текст варианта
+- Результаты голосования можно посмотреть, с помощью специальных методов контракта:
+  - `getWinningVariantId`, `getWinningVariantName`, `getWinningVariantVotesCount` - для просмотра варианта-победителя
+  - `getVotesCount`, `getVotesCountByName` - просмотр количества голосов за определенный вариант
+
 
 ## Контракт ICO
 
