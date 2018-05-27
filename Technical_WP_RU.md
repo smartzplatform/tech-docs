@@ -1622,6 +1622,48 @@ ERC20 токен с такими дополнительными возможно
 Исходный код:
 - [Контракт](https://github.com/smartzplatform/sale/blob/master/contracts/SmartzToken.sol)
 
+Общая схема работы:
+- Владелец токена деплоит токен, указав:
+  - Адреса владельцев токена и количество владельцев, необходимых для совершения критичныйх действий в контракте:
+    - Сохранения адреса KYC провайдера
+    - Добавления и удаления, контрактов, которым позволено переводить токены, указывая для них дату заморозки (например контракты ICO)
+    - Отключения возможности выполять действия выше.
+  - Название, символ и количество знаков после запятой токена, является ли токен сжигаемым
+  - Количество токенов, которые будут созданы для человека, деплоящего контракт
+  - Добавить ли в контракт функцию `approveAndCall` (см. описание ниже)
+  - Адреса, количество токенов и дата их заморозки для токенов, создаваемых при деплое контракта
+- Владелец схраняет в контракт токена адрес KYC провайдера и добавляет контракты ICO
+- Контракты ICO переводят токены клиентам, с указанием даты разморозки и необходимости пройти процедуру KYC.
+- Пользователи, пройдя при необходимости процедуру KYC, после даты разморозки токенов, могут пользоваться токеном, как обычным ERC20 токеном.
+
+Функции, требующие подтверждения нескольких владельцев, используют контракт `multiowned` (см. описание контракта кошелька с мультиподписью).
+
+Функция `approveAndCall` токена позволяет атомарно разрешить трату некоторого количества токенов определенному контракту и вызвать метод этого контракта. Это позволяет реализовывать в контрактах удобный механизм оплаты чего-либо за токены. Такой контракт должен реализовать следующий интерфейс:
+```
+interface IApprovalRecipient {
+    /**
+     * @notice Signals that token holder approved spending of tokens and some action should be taken.
+     *
+     * @param _sender token holder which approved spending of his tokens
+     * @param _value amount of tokens approved to be spent
+     * @param _extraData any extra data token holder provided to the call
+     *
+     * @dev warning: implementors should validate sender of this message (it should be the token) and make no further
+     *      assumptions unless validated them via ERC20 methods.
+     */
+    function receiveApproval(address _sender, uint256 _value, bytes _extraData) public;
+}
+```
+
+Контракт KYC должен реализовать следующий интерфейс:
+```
+/// @title Interface responsible for reporting KYC status of an address.
+interface IKYCProvider {
+    /// @title Returns true for addresses have passed KYC procedure
+    function isKYCPassed(address _address) public view returns (bool);
+}
+```
+
 
 # Мобильные приложения
 
