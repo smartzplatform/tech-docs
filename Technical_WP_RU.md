@@ -1461,9 +1461,11 @@ Smartz предоставит алгоритмы MBDQ и MBDRQ в библиот
 
 ## Аренда
 
-Контракт для сдачи в аренду помещения:
-- [Исходный код контракта](https://github.com/smartzplatform/contracts/blob/master/contracts/booking/Booking.sol)
-- [Исходный код конструктора](https://github.com/smartzplatform/SDK/blob/master/constructor_examples/booking_constructor.py)
+Контракт для сдачи в аренду помещения за эфир.
+
+Исходный код:
+- [Контракт](https://github.com/smartzplatform/contracts/blob/master/contracts/booking/Booking.sol)
+- [Конструктор](https://github.com/smartzplatform/SDK/blob/master/constructor_examples/booking_constructor.py)
 
 Участники:
 - Арендодатель (владелец помещения)
@@ -1501,10 +1503,10 @@ Smartz предоставит алгоритмы MBDQ и MBDRQ в библиот
 
 ## Атомарный обмен эфира и ERC20 токенов
 
-Контракты для атомарного обмена:
-- [Исходный код контракта для обмена эфира на ERC20 токены](https://github.com/smartzplatform/contracts/blob/master/contracts/swap/SwapTokenForEther.sol)
-- [Исходный код контракта для обмена токенов на токены](https://github.com/smartzplatform/contracts/blob/master/contracts/swap/SwapTokenForToken.sol)
-- [Исходный код конструктора контрактов](https://github.com/smartzplatform/SDK/blob/master/constructor_examples/erc20_swap_constructor.py)
+Исходный код:
+- [Контракт для обмена эфира на ERC20 токены](https://github.com/smartzplatform/contracts/blob/master/contracts/swap/SwapTokenForEther.sol)
+- [Контракт для обмена токенов на токены](https://github.com/smartzplatform/contracts/blob/master/contracts/swap/SwapTokenForToken.sol)
+- [Конструктор контрактов](https://github.com/smartzplatform/SDK/blob/master/constructor_examples/erc20_swap_constructor.py)
 
 Общая схема работы:
 1. Один из участников обмена деплоит контракт обмена, указав:
@@ -1520,9 +1522,11 @@ Smartz предоставит алгоритмы MBDQ и MBDRQ в библиот
 
 ## Реестр
 
-Контракт реестра:
-- [Исходный код примера контракта](https://github.com/smartzplatform/contracts/blob/master/contracts/registry/Registry.sol)
-- [Исходный код конструктора](https://github.com/smartzplatform/SDK/blob/master/constructor_examples/ledger_constructor.py)
+Контракт реестра используется для хранения каких-либо структурированных данных с возможностью поиска по ним
+
+Исходный код:
+- [Примера контракта](https://github.com/smartzplatform/contracts/blob/master/contracts/registry/Registry.sol)
+- [Конструктор контрактов](https://github.com/smartzplatform/SDK/blob/master/constructor_examples/ledger_constructor.py)
 
 Общая схема работы:
 - Владелец реестра деплоит контракт реестра, указав, поля каких типов использовать. Возможные типы:
@@ -1548,6 +1552,43 @@ function findIdByFullName(bytes32 name) internal view returns (uint256);
 ```
 
 Данная особенность позволяет удобно использовать данный контракт не только с панелью управления smartz, но и с другими автогенерируемыми панелями управления, например в Mist.
+
+
+## Кошелек с мультиподписью
+
+Кошелек, действия в отором требуют подписи транзакции несколькими лицами
+
+Исходный код:
+- [Контракт](https://github.com/mixbytes/solidity/blob/master/contracts/ownership/MultiSigWallet.sol)
+- [Конструктор контрактов](https://github.com/smartzplatform/SDK/blob/master/constructor_examples/multisig_wallet_constructor.py)
+
+
+
+## Голосование
+
+Контракт, реализующий простое голосование на блокчейне эфира.
+
+Исходный код:
+- [Контракт](https://github.com/smartzplatform/contracts/blob/master/contracts/ballot/SimpleBallot.sol)
+- [Конструктор контрактов](https://github.com/smartzplatform/SDK/blob/master/constructor_examples/simple_ballot_constructor.py)
+
+
+## Контракт ICO
+
+Контракт простого ICO.
+
+Исходный код:
+- [Контракт](https://github.com/smartzplatform/contracts/blob/master/contracts/simple_ico/SimpleICO.sol)
+- [Конструктор контрактов](https://github.com/smartzplatform/SDK/blob/master/constructor_examples/simple_ico_constructor.py)
+
+
+## Токен Smartz
+
+ERC20 токен с такими дополнительными возможностями, как заморозка токенов, возможность требования прохождения KYC процедуры перед использованием токенов. Токен компании smartz.io был задеплоен через данный конструктор контрактов.
+
+Исходный код:
+- [Контракт](https://github.com/smartzplatform/sale/blob/master/contracts/SmartzToken.sol)
+
 
 # Мобильные приложения
 
