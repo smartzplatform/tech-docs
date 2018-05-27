@@ -1603,6 +1603,17 @@ function findIdByFullName(bytes32 name) internal view returns (uint256);
 - [Контракт](https://github.com/smartzplatform/contracts/blob/master/contracts/simple_ico/SimpleICO.sol)
 - [Конструктор контрактов](https://github.com/smartzplatform/SDK/blob/master/constructor_examples/simple_ico_constructor.py)
 
+Общая схема работы:
+- Организатор ICO деплоит контракт ICO, указав:
+  - Название и тикер токена (токен будет задпелоен совместно с контрактом ICO)
+  - Даты начала и окончания ICO
+  - Курс токена к эфиру (количество токенов, которое будет возвращаться участникам за 1 эфир)
+  - Hard cap. При сборе этого количества эфиров ICO прекращается
+  - Адрес, на который будет отправляться собранный эфир
+- Участники отправляют эфир на адрес контракта
+  - Контракт начисляет отправителю нужное количество токенов
+  - Собранный эфир отправляется на указанный при деплое адрес
+
 
 ## Токен Smartz
 
