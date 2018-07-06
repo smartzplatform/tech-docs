@@ -10,8 +10,7 @@ is set as the parameter for the constructor function (from this point on, we wil
 as an engine provided and utilised on the Smartz platform). To avoid confusing it with a constructor in the sense
 of object oriented programming, we will call the latter a "constructor function". In a more complicated case, a burn action may be
 available in a token. This can be implemented by means of adding a correspondent feature into the contract code or through
-inheritance: by means of connecting a token contract that has a Burn function (see "Burnable Token" in [erc20_token_constructor.py] (for instance
-in [erc20_token_constructor.py](https://github.com/smartzplatform/SDK/blob/ba8230d39e94f70a30e716f4f1e48ddd4e702432/constructor_examples/erc20_token_constructor.py)) as a parent contract).
+inheritance: by means of connecting a token contract that has a Burn function (see "Burnable Token" in [erc20_token_constructor.py](https://github.com/smartzplatform/SDK/blob/ba8230d39e94f70a30e716f4f1e48ddd4e702432/constructor_examples/erc20_token_constructor.py)) as a parent contract).
 This may require adding an additional logic that helps align the parent-class contract with the child-class contract.
 (see `transfer`, `transferFrom`, `burn` in [SmartzToken](https://github.com/smartzplatform/sale/blob/6a00b30ccaa3dabc515ad7dfd29bbd85848c9603/contracts/SmartzToken.sol)).
 
